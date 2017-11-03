@@ -75,9 +75,9 @@ install {
                 }
                 developers {
                     developer {
-                        id 'ctsn'        //填写的一些基本信息
-                        name 'ctsn'
-                        email 'zhengzhengrui@gd.cloudlinkin.com'
+                        id 'snctoo'        //填写的一些基本信息
+                        name 'snctoo'
+                        email '1882078556@qq.com'
                     }
                 }
                 scm {
