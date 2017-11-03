@@ -105,41 +105,14 @@ public class GridViewWithHeaderAndFooter extends GridView {
         // Ignore, since the header rows depend on not being clipped
     }
 
-    /**
-     * Do not call this method unless you know how it works.
-     *
-     * @param clipChildren
-     */
     public void setClipChildrenSupper(boolean clipChildren) {
         super.setClipChildren(false);
     }
 
-    /**
-     * Add a fixed view to appear at the top of the grid. If addHeaderView is
-     * called more than once, the views will appear in the order they were
-     * added. Views added using this call can take focus if they want.
-     * <p/>
-     * NOTE: Call this before calling setAdapter. This is so HeaderGridView can wrap
-     * the supplied cursor with one that will also account for header views.
-     *
-     * @param v The view to add.
-     */
     public void addHeaderView(View v) {
         addHeaderView(v, null, true);
     }
 
-    /**
-     * Add a fixed view to appear at the top of the grid. If addHeaderView is
-     * called more than once, the views will appear in the order they were
-     * added. Views added using this call can take focus if they want.
-     * <p/>
-     * NOTE: Call this before calling setAdapter. This is so HeaderGridView can wrap
-     * the supplied cursor with one that will also account for header views.
-     *
-     * @param v            The view to add.
-     * @param data         Data to associate with this view
-     * @param isSelectable whether the item is selectable
-     */
     public void addHeaderView(View v, Object data, boolean isSelectable) {
         ListAdapter adapter = getAdapter();
         if (adapter != null && !(adapter instanceof HeaderViewGridAdapter)) {
@@ -420,11 +393,6 @@ public class GridViewWithHeaderAndFooter extends GridView {
         }
     }
 
-    /**
-     * Return original adapter for convenience.
-     *
-     * @return
-     */
     public ListAdapter getOriginalAdapter() {
         return mOriginalAdapter;
     }
@@ -794,7 +762,6 @@ public class GridViewWithHeaderAndFooter extends GridView {
         /**
          * content view, content view holder, header[0], header and footer placeholder(s)
          *
-         * @return
          */
         @Override
         public int getViewTypeCount() {

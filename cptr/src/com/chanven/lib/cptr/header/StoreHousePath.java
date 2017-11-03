@@ -329,12 +329,6 @@ public class StoreHousePath {
         return getPath(str, 1, 14);
     }
 
-    /**
-     * @param str
-     * @param scale
-     * @param gapBetweenLetter
-     * @return ArrayList of float[] {x1, y1, x2, y2}
-     */
     public static ArrayList<float[]> getPath(String str, float scale, int gapBetweenLetter) {
         ArrayList<float[]> list = new ArrayList<float[]>();
         float offsetForWidth = 0;

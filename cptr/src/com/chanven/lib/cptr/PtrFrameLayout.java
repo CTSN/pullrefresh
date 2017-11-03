@@ -343,11 +343,6 @@ public class PtrFrameLayout extends ViewGroup {
         return dispatchTouchEventSupper(e);
     }
 
-    /**
-     * if deltaY > 0, move the content down
-     *
-     * @param deltaY
-     */
     private void movePos(float deltaY) {
         // has reached the top
         if ((deltaY < 0 && mPtrIndicator.isInStartPosition())) {
@@ -469,12 +464,6 @@ public class PtrFrameLayout extends ViewGroup {
         }
     }
 
-    /**
-     * please DO REMEMBER resume the hook
-     *
-     * @param hook
-     */
-
     public void setRefreshCompleteHook(PtrUIHandlerHook hook) {
         mRefreshCompleteHook = hook;
         hook.setResumeAction(new Runnable() {
@@ -580,11 +569,6 @@ public class PtrFrameLayout extends ViewGroup {
         }
     }
 
-    /**
-     * Detect whether is refreshing.
-     *
-     * @return
-     */
     public boolean isRefreshing() {
         return mStatus == PTR_STATUS_LOADING;
     }
@@ -640,11 +624,6 @@ public class PtrFrameLayout extends ViewGroup {
         notifyUIRefreshComplete(false);
     }
 
-    /**
-     * Do real refresh work. If there is a hook, execute the hook first.
-     *
-     * @param ignoreHook
-     */
     private void notifyUIRefreshComplete(boolean ignoreHook) {
         /**
          * After hook operation is done, {@link #notifyUIRefreshComplete} will be call in resume action to ignore hook.
@@ -711,11 +690,6 @@ public class PtrFrameLayout extends ViewGroup {
         return (mFlag & MASK_AUTO_REFRESH) == FLAG_AUTO_REFRESH_BUT_LATER;
     }
 
-    /**
-     * If @param enable has been set to true. The user can perform next PTR at once.
-     *
-     * @param enable
-     */
     public void setEnabledNextPtrAtOnce(boolean enable) {
         if (enable) {
             mFlag = mFlag | FLAG_ENABLE_NEXT_PTR_AT_ONCE;
@@ -728,11 +702,6 @@ public class PtrFrameLayout extends ViewGroup {
         return (mFlag & FLAG_ENABLE_NEXT_PTR_AT_ONCE) > 0;
     }
 
-    /**
-     * The content view will now move when {@param pinContent} set to true.
-     *
-     * @param pinContent
-     */
     public void setPinContent(boolean pinContent) {
         if (pinContent) {
             mFlag = mFlag | FLAG_PIN_CONTENT;
@@ -745,29 +714,14 @@ public class PtrFrameLayout extends ViewGroup {
         return (mFlag & FLAG_PIN_CONTENT) > 0;
     }
 
-    /**
-     * It's useful when working with viewpager.
-     *
-     * @param disable
-     */
     public void disableWhenHorizontalMove(boolean disable) {
         mDisableWhenHorizontalMove = disable;
     }
 
-    /**
-     * loading will last at least for so long
-     *
-     * @param time
-     */
     public void setLoadingMinTime(int time) {
         mLoadingMinTime = time;
     }
 
-    /**
-     * Not necessary any longer. Once moved, cancel event will be sent to child.
-     *
-     * @param yes
-     */
     @Deprecated
     public void setInterceptEventWhileWorking(boolean yes) {
     }
@@ -811,11 +765,6 @@ public class PtrFrameLayout extends ViewGroup {
         return mDurationToClose;
     }
 
-    /**
-     * The duration to return back to the refresh position
-     *
-     * @param duration
-     */
     public void setDurationToClose(int duration) {
         mDurationToClose = duration;
     }
@@ -825,11 +774,6 @@ public class PtrFrameLayout extends ViewGroup {
         return mDurationToCloseHeader;
     }
 
-    /**
-     * The duration to close time
-     *
-     * @param duration
-     */
     public void setDurationToCloseHeader(int duration) {
         mDurationToCloseHeader = duration;
     }

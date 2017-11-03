@@ -120,42 +120,23 @@ public class MaterialHeader extends View implements PtrUIHandler {
         canvas.restoreToCount(saveCount);
     }
 
-    /**
-     * When the content view has reached top and refresh has been completed, view will be reset.
-     *
-     * @param frame
-     */
     @Override
     public void onUIReset(PtrFrameLayout frame) {
         mScale = 1f;
         mDrawable.stop();
     }
 
-    /**
-     * prepare for loading
-     *
-     * @param frame
-     */
+
     @Override
     public void onUIRefreshPrepare(PtrFrameLayout frame) {
     }
 
-    /**
-     * perform refreshing UI
-     *
-     * @param frame
-     */
     @Override
     public void onUIRefreshBegin(PtrFrameLayout frame) {
         mDrawable.setAlpha(255);
         mDrawable.start();
     }
 
-    /**
-     * perform UI after refresh
-     *
-     * @param frame
-     */
     @Override
     public void onUIRefreshComplete(PtrFrameLayout frame) {
         mDrawable.stop();

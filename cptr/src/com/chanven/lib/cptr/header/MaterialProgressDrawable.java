@@ -45,13 +45,6 @@ import android.view.animation.Transformation;
 
 import com.chanven.lib.cptr.utils.PtrLocalDisplay;
 
-/**
- * Fancy progress indicator for Material theme.
- * It's taken from {@link android.support.v4.widget}.
- * I've done some slight changes.
- *
- * @hide
- */
 public class MaterialProgressDrawable extends Drawable implements Animatable {
 
     // Maps to ProgressBar.Large style
@@ -70,23 +63,15 @@ public class MaterialProgressDrawable extends Drawable implements Animatable {
     private static final int CIRCLE_DIAMETER_LARGE = 56;
     private static final float CENTER_RADIUS_LARGE = 12.5f;
     private static final float STROKE_WIDTH_LARGE = 3f;
-    /**
-     * The duration of a single progress spin in milliseconds.
-     */
+
     private static final int ANIMATION_DURATION = 1000 * 80 / 60;
-    /**
-     * The number of points in the progress "star".
-     */
+
     private static final float NUM_POINTS = 5f;
-    /**
-     * Layout info for the arrowhead in dp
-     */
+
     private static final int ARROW_WIDTH = 10;
     private static final int ARROW_HEIGHT = 5;
     private static final float ARROW_OFFSET_ANGLE = 5;
-    /**
-     * Layout info for the arrowhead for the large spinner in dp
-     */
+
     private static final int ARROW_WIDTH_LARGE = 12;
     private static final int ARROW_HEIGHT_LARGE = 6;
     private static final float MAX_PROGRESS_ARC = .8f;
@@ -227,21 +212,11 @@ public class MaterialProgressDrawable extends Drawable implements Animatable {
         mRing.setRotation(rotation);
     }
 
-    /**
-     * Update the background color of the circle image view.
-     */
     public void setBackgroundColor(int color) {
         mBackgroundColor = color;
         mRing.setBackgroundColor(color);
     }
 
-    /**
-     * Set the colors used in the progress animation from color resources.
-     * The first color will also be the color of the bar that grows in response
-     * to a user swipe gesture.
-     *
-     * @param colors
-     */
     public void setColorSchemeColors(int... colors) {
         mRing.setColors(colors);
         mRing.setColorIndex(0);

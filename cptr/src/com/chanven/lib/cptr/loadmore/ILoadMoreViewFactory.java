@@ -34,12 +34,6 @@ public interface ILoadMoreViewFactory {
      */
     public interface ILoadMoreView {
 
-        /**
-         * 初始化
-         *
-         * @param footViewHolder
-         * @param onClickLoadMoreListener 加载更多的点击事件，需要点击调用加载更多的按钮都可以设置这个监听
-         */
         public void init(FootViewAdder footViewHolder, OnClickListener onClickLoadMoreListener);
 
         /**
@@ -47,21 +41,10 @@ public interface ILoadMoreViewFactory {
          */
         public void showNormal();
 
-        /**
-         * 显示已经加载完成，没有更多数据的布局
-         */
         public void showNomore();
 
-        /**
-         * 显示正在加载中的布局
-         */
         public void showLoading();
 
-        /**
-         * 显示加载失败的布局
-         *
-         * @param e
-         */
         public void showFail(Exception e);
 
         public void setFooterVisibility(boolean isVisible);

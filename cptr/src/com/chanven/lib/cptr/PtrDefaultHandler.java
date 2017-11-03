@@ -22,14 +22,6 @@ public abstract class PtrDefaultHandler implements PtrHandler {
         }
     }
 
-    /**
-     * Default implement for check can perform pull to refresh
-     *
-     * @param frame
-     * @param content
-     * @param header
-     * @return
-     */
     public static boolean checkContentCanBePulledDown(PtrFrameLayout frame, View content, View header) {
         return !canChildScrollUp(content);
     }

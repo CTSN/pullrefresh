@@ -74,11 +74,6 @@ public class PtrClassicDefaultHeader extends FrameLayout implements PtrUIHandler
         buildAnimation();
     }
 
-    /**
-     * Specify the last update time by this key string
-     *
-     * @param key
-     */
     public void setLastUpdateTimeKey(String key) {
         if (TextUtils.isEmpty(key)) {
             return;
@@ -86,11 +81,6 @@ public class PtrClassicDefaultHeader extends FrameLayout implements PtrUIHandler
         mLastUpdateTimeKey = key;
     }
 
-    /**
-     * Using an object to specify the last update time.
-     *
-     * @param object
-     */
     public void setLastUpdateTimeRelateObject(Object object) {
         setLastUpdateTimeKey(object.getClass().getName());
     }

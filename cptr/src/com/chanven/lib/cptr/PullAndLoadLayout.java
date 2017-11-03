@@ -66,38 +66,8 @@ public class PullAndLoadLayout extends PtrFrameLayout {
         }
     }
 
-    /**
-     * Default implement for check can perform pull to refresh
-     *
-     * @param frame
-     * @param content
-     * @param header
-     * @return
-     */
     public static boolean checkContentCanBePulledDown(PtrFrameLayout frame, View content, View header) {
         return !canChildScrollUp(content);
     }
 
-    //
-//    /**
-//     * Specify the last update time by this key string
-//     *
-//     * @param key
-//     */
-//    public void setLastUpdateTimeKey(String key) {
-//        if (mPtrClassicHeader != null) {
-//            mPtrClassicHeader.setLastUpdateTimeKey(key);
-//        }
-//    }
-//
-//    /**
-//     * Using an object to specify the last update time.
-//     *
-//     * @param object
-//     */
-//    public void setLastUpdateTimeRelateObject(Object object) {
-//        if (mPtrClassicHeader != null) {
-//            mPtrClassicHeader.setLastUpdateTimeRelateObject(object);
-//        }
-//    }
 }

@@ -101,9 +101,6 @@ public class PtrIndicator {
         return mCurrentPos;
     }
 
-    /**
-     * Update current position before update the UI
-     */
     public final void setCurrentPos(int current) {
         mLastPos = mCurrentPos;
         mCurrentPos = current;
