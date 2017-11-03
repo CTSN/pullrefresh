@@ -109,7 +109,7 @@ Properties properties = new Properties()
 //读取properties的配置信息，当然直接把信息写到代码里也是可以的
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
-    user = "snctoo"
+    user = "snct"
     key = "cd9ebe638e8605ed216a26f87ebdde23860c5005"
     configurations = ['archives']
     pkg {
