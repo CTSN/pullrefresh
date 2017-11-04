@@ -1,7 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
-version = "1.1.0"
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
@@ -54,71 +51,27 @@ android {
     }
 }
 
-def siteUrl = 'https://github.com/CTSN/pullrefresh'   // 项目的主页
-def gitUrl = 'https://github.com/CTSN/pullrefresh.git'   // Git仓库的url
-group = "com.chanven.lib.cptr"            // Maven Group ID for the artifact，
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                // Add your description here
-                name 'A simple file download manager support by okHttp'     //项目的描述 你可以多写一点
-                url siteUrl
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'snctoo'        //填写的一些基本信息
-                        name 'snctoo'
-                        email '1882078556@qq.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-Properties properties = new Properties()
-//读取properties的配置信息，当然直接把信息写到代码里也是可以的
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-bintray {
-    user = "snctoo"
-    key = "cd9ebe638e8605ed216a26f87ebdde23860c5005"
-    configurations = ['archives']
-    pkg {
-        repo = "maven"          //这个应该是传到maven的仓库的
-        name = "pullrefresh"    //发布的项目名字
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'pull_refresh'
+
+    publishedGroupId = 'com.chanven.lib'
+    libraryName = 'cptr'
+    artifact = 'pullrefreshLib'
+
+    libraryDescription = 'pull and refresh Lib'
+
+    siteUrl = 'https://github.com/CTSN/pullrefresh'
+    gitUrl = 'https://github.com/CTSN/pullrefresh.git'
+
+    libraryVersion = '1.1.0'
+
+    developerId = 'snct'
+    developerName = ' CTSN'
+    developerEmail = '18820785556@139.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
 
