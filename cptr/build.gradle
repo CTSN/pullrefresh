@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.CTSN'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
@@ -33,6 +35,10 @@ android {
         release.setRoot('build-types/release')
     }
 
+    lintOptions {//需添加的
+        abortOnError false
+    }
+
     dexOptions {
         preDexLibraries = false
     }
@@ -50,28 +56,3 @@ android {
         }
     }
 }
-
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'pull_refresh'
-
-    publishedGroupId = 'com.chanven.lib'
-    libraryName = 'cptr'
-    artifact = 'pullrefreshLib'
-
-    libraryDescription = 'pull and refresh Lib'
-
-    siteUrl = 'https://github.com/CTSN/pullrefresh'
-    gitUrl = 'https://github.com/CTSN/pullrefresh.git'
-
-    libraryVersion = '1.1.0'
-
-    developerId = 'snct'
-    developerName = ' CTSN'
-    developerEmail = '18820785556@139.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
