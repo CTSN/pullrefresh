@@ -72,9 +72,9 @@ public class LoadMoreFooter implements ILoadMoreViewFactory {
         public void showNomore() {
             animationDrawable.stop();
             footerTv.setVisibility(View.VISIBLE);
-            rotateIv.setVisibility(View.GONE);
             footerTv.setText("已没有更多邮件了");
             footerView.setOnClickListener(null);
+            rotateIv.setVisibility(View.GONE);
         }
 
         @Override
