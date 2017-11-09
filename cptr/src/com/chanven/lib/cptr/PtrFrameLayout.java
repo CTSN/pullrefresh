@@ -992,7 +992,7 @@ public class PtrFrameLayout extends ViewGroup {
     private ILoadMoreViewFactory loadMoreViewFactory;
     private ILoadMoreView mLoadMoreView;
 
-    private LoadMoreHandler mLoadMoreHandler;
+    public LoadMoreHandler mLoadMoreHandler;
 
     private View mContentView;
 
@@ -1051,12 +1051,10 @@ public class PtrFrameLayout extends ViewGroup {
             return;
         }
 
-        if (hasInitLoadMoreView) {
-            if (isLoadMoreEnable) {
-                mLoadMoreHandler.addFooter();
-            } else {
-                mLoadMoreHandler.removeFooter();
-            }
+        if (isLoadMoreEnable) {
+            mLoadMoreHandler.addFooter();
+        } else {
+            mLoadMoreHandler.removeFooter();
         }
     }
 

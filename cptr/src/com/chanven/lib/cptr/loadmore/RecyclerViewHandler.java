@@ -12,7 +12,7 @@ import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 public class RecyclerViewHandler implements LoadMoreHandler {
 
     private RecyclerAdapterWithHF mRecyclerAdapter;
-    private View mFooter;
+    public View mFooter;
 
     @Override
     public boolean handleSetAdapter(View contentView, ILoadMoreViewFactory.ILoadMoreView loadMoreView, OnClickListener onClickLoadMoreListener) {

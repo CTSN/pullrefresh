@@ -71,14 +71,9 @@ public class RecyclerViewActivity extends AppCompatActivity implements PtrHandle
         mAdapter = new RecyclerAdapterWithHF(adapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
-        ptrClassicFrameLayout.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ptrClassicFrameLayout.autoRefresh(true);
-            }
-        }, 150);
 
         ptrClassicFrameLayout.setPtrHandler(this);
+        ptrClassicFrameLayout.setLoadMoreEnable(true);
 
         ptrClassicFrameLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
 
@@ -90,7 +85,13 @@ public class RecyclerViewActivity extends AppCompatActivity implements PtrHandle
                     public void run() {
                         mData.add(new String("  RecyclerView item  - add " + page));
                         mAdapter.notifyDataSetChanged();
-                        ptrClassicFrameLayout.loadMoreComplete(true);
+                        if (page == 4) {
+                            ptrClassicFrameLayout.loadMoreComplete(false);
+                            ptrClassicFrameLayout.setLoadMoreEnable(false);
+                        }else{
+                            ptrClassicFrameLayout.loadMoreComplete(true);
+
+                        }
                         page++;
                         Toast.makeText(RecyclerViewActivity.this, "load more complete", Toast.LENGTH_SHORT).show();
                     }
@@ -116,6 +117,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements PtrHandle
                 }
                 mAdapter.notifyDataSetChanged();
                 ptrClassicFrameLayout.refreshComplete();
+                ptrClassicFrameLayout.loadMoreComplete(true);
                 ptrClassicFrameLayout.setLoadMoreEnable(true);
             }
         }, 1500);
