@@ -117,8 +117,6 @@ public class RecyclerViewActivity extends AppCompatActivity implements PtrHandle
                 }
                 mAdapter.notifyDataSetChanged();
                 ptrClassicFrameLayout.refreshComplete();
-                ptrClassicFrameLayout.loadMoreComplete(true);
-                ptrClassicFrameLayout.setLoadMoreEnable(true);
             }
         }, 1500);
     }
